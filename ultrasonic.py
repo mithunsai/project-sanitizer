@@ -41,7 +41,7 @@ time.sleep(2)
 
 
 
-if GPIO.input(start) ==1:
+if GPIO.input(start) == 1:
     try:
         for i,j in zip(TRIG,ECHO):
 
@@ -76,17 +76,17 @@ if GPIO.input(start) ==1:
             time.sleep(0.00001)
             GPIO.output(TRIG1, False)
 
-           while GPIO.input(ECHO1)==0:
+            while GPIO.input(ECHO1)==0:
                pulse_start = time.time()
                print("start",pulse_start)
 
-           while GPIO.input(ECHO1)==1:
+            while GPIO.input(ECHO1)==1:
                pulse_end = time.time()
                print("end",pulse_end)
 
-           pulse_duration = pulse_end - pulse_start
+            pulse_duration = pulse_end - pulse_start
 
-           distance = pulse_duration * 17150
+            distance = pulse_duration * 17150
 
             state= GPIO.input(encoder)
             if not prev == state:
@@ -119,17 +119,17 @@ if GPIO.input(start) ==1:
             time.sleep(0.00001)
             GPIO.output(TRIG1, False)
 
-           while GPIO.input(ECHO1)==0:
+            while GPIO.input(ECHO1)==0:
                pulse_start = time.time()
                print("start",pulse_start)
 
-           while GPIO.input(ECHO1)==1:
+            while GPIO.input(ECHO1)==1:
                pulse_end = time.time()
                print("end",pulse_end)
 
-           pulse_duration = pulse_end - pulse_start
+            pulse_duration = pulse_end - pulse_start
 
-           distance = pulse_duration * 17150
+            distance = pulse_duration * 17150
 
             state= GPIO.input(encoder)
             if not prev == state:
@@ -163,6 +163,8 @@ if GPIO.input(start) ==1:
                l.append([k,u])
            li.append(l)
         print(li)
+    except Exception as e:
+        print(e)
 
 
 
